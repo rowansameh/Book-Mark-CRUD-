@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--^--------------Title--------------->
+    <title>Bookmark</title>
+
+    <!--^--------------Title's Icon--------------->
+    <link rel="icon" href="images/bookmark.png" />
+
+    <!--^---------------Fonts------------------->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&display=swap"
+        rel="stylesheet">
+
+    <!--^------------font awesome library------------>
+    <link rel="stylesheet" href="css/all.min.css">
+
+    <!--^------------css style------------>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main class="py-5">
+        <div class="container d-flex flex-column justify-content-center align-items-center">
+            <h1 class="py-2 mb-2 position-relative">Bookmarker</h1>
+            <div class="bookmark-info p-3 py-4 w-100 mt-5 d-flex flex-column justify-content-center align-items-center gap-4">
+                <h2 class="mb-2">
+                    <i class="fa-solid fa-bookmark"></i>
+                    Bookmark your favorite sites
+                    <i class="fa-solid fa-bookmark"></i>
+                </h2>
+                <div class="siteName w-100 d-flex flex-column justify-content-center">
+                    <label for="siteName" class="pb-2 fw-semibold">
+                        <i class="fa-solid fa-book-bookmark pe-2"></i>Site Name
+                    </label>
+                    <input id="siteName" type="text" placeholder="Bookmark Name" oninput="validateInputs(this)" class="form-control">
+                    <div class="alert alert-danger p-1 mt-2 d-none">
+                        <small>Inavalid name, please make sure you're following rules:
+                            <ol>
+                                <li>first letter is capital</li>
+                                <li>the name is at least 3 letters and don't exceed 25</li>
+                                <li>do not use special characters like(/, *,!...)</li>
+                            </ol>
+                        </small>
+                    </div>
+                </div>
+                <div class="siteURL w-100 d-flex flex-column justify-content-center">
+                    <label for="siteURL" class="pb-2 fw-semibold">
+                        <i class="fa-solid fa-link pe-2"></i>Site URL
+                    </label>
+                    <input id="siteURL" type="text" placeholder="Website URL" oninput="validateInputs(this)" class="form-control">
+                    <div class="alert alert-danger p-1 mt-2 d-none">
+                        <small>Inavalid URL, please make sure you're following rules:
+                            <ol>
+                                <li>the url can should with http:// or https://</li>
+                                <li>avoid spaces</li>
+                                <li>make sure that the url looks like something like this : https://example.com</li>
+                            </ol>
+                        </small>
+                    </div>
+                </div>
+                <button id="addBtn" class="btn submitBtn px-5" onclick="addBookMark()">Submit</button>
+                <button id="updateBtn" class="btn updatetBtn px-5 d-none" onclick="updateData()">Update</button>
+            </div>
+            <table class="bg-light text-center table mt-4">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Website Name</th>
+                        <th>Visit</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="allBookMarks">
+                    
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
